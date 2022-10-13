@@ -6,20 +6,20 @@ def stringCompression(string):
     unique = ""
     
     for idx, i in enumerate(string):
-        if unique != "":
-            if i != unique:
+        if unique != "": # for first run through
+            if i != unique: # moving onto a new letter
                 ans += (unique + str(count))
                 count = 1
                 unique = i
-                if idx == (len(string) - 1):
+                if idx == (len(string) - 1): # exit at end
                     ans += (unique + str(count))
                 continue
         if i == unique:
-            count += 1
-            if idx == (len(string) - 1):
+            count += 1 # same letter so increment
+            if idx == (len(string) - 1): # exit at end
                 ans += (unique + str(count))
         else:
-            unique = i
+            unique = i # have a new letter not at string end
             count += 1
     
     return ans
