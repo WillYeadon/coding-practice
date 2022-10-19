@@ -20,16 +20,24 @@ class LinkedList():
     def delete(self, del_node):
         current = self.head
         
-        if (current.value == del_node):
-            self.head = current.next
-        else:
-            while (current.next):
-                if (current.next.value == del_node):
-                    current.next = current.next.next
-                    break
-                else:
-                    current.next = current.next
-                    
+        if (current is not None):
+            if (current.data == del_node):
+                self.head = current.next
+                current = None
+                return
+
+        while (current is not None):
+            if (current.data == del_node):
+                break
+            previous = current
+            current = current.next
+        
+        if (current == None):
+            return
+        
+        previous.next = current.next
+        current = None
+ 
     def printElements(self):
         current = self.head
         
@@ -40,7 +48,21 @@ class LinkedList():
                 print(current.data)
         else:
             print("List empty?")
+            
+    def delDup(self):
+        hash1 = {}
+        current = self.head
 
+        while (current.next):
+            if current.data in hash1:
+                self.delete(current.data)
+            else:
+                hash1[current.data] = 1
+
+            current = current.next
+
+        if not current.next:
+            self.delete(current.data)
                     
             
         
