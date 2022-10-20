@@ -79,4 +79,25 @@ class LinkedList():
             kth -= 1
             
         return current.data
+    
+    def delMiddle(self, del_node):
+        prev = self.head
+        current = self.head.next
+        post = self.head.next.next
+        
+        if (prev.data == del_node):
+            print("Head node not in middle, use delete")
+            return
+        
+        while (post):
+            if (current.data == del_node):
+                prev.next = current.next
+                current = None
+                return
+            prev = prev.next
+            current = current.next
+            post = post.next
+                
+            
+        print("Tail node not in middle, use delete")
         
