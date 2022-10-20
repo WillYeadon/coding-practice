@@ -63,6 +63,20 @@ class LinkedList():
 
         if not current.next:
             self.delete(current.data)
-                    
             
+    def kthToLast(self, k):
+        current = self.head
+        count = 1
+        
+        while (current.next):
+            count += 1
+            current = current.next
+            
+        kth = count - k             
+        current = self.head
+        while (kth > 0):
+            current = current.next
+            kth -= 1
+            
+        return current.data
         
