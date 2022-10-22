@@ -40,12 +40,14 @@ class LinkedList():
  
     def printElements(self):
         current = self.head
+        printable = []
         
         if (self.head):
-            print(current.data)
+            printable.append(current.data)
             while (current.next):
                 current = current.next
-                print(current.data)
+                printable.append(current.data)
+            print(printable)
         else:
             print("List empty?")
             
@@ -100,4 +102,49 @@ class LinkedList():
                 
             
         print("Tail node not in middle, use delete")
+        
+    def partition(self, value):
+        current = self.head
+        a = LinkedList()
+        b = LinkedList()
+        
+        while (current):
+            if (current.data < value):
+                a.append(Node(current.data))
+            else:
+                b.append(Node(current.data))
+            current = current.next
+        
+        current = a.head
+        
+        while (current):
+            if (current.next == None):
+                current.next = b.head
+                break              
+            current = current.next
+            
+        return a
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
