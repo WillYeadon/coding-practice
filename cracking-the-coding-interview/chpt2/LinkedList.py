@@ -125,7 +125,15 @@ class LinkedList():
             
         return a
         
+    def listIfy(self):
+        ans = []
         
+        current = self.head
+        while (current):
+            ans.append(current.data)
+            current = current.next
+        
+        return ans
         
         
         
