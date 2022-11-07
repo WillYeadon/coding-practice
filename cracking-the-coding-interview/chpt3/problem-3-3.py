@@ -24,8 +24,9 @@ class SetOfStacks:
             self.currentStack -= 1
             self.currentHeight = self.heightMax
 
-        self.currentHeight -= 1
-        print('On stack', self.currentStack)
+        if self.currentStack == n:
+            self.currentHeight -= 1
+        
         return self.multi[n].pop()
         
     def push(self, n):
@@ -44,7 +45,8 @@ class SetOfStacks:
     
     def deStack(self):
         while self.overAllLength > 0:
-            print(self.pop())
+            print('value = ', self.pop(),\
+                  'stack = ', self.currentStack)
     
 stacks = SetOfStacks()
 # Stack 1
@@ -58,19 +60,20 @@ stacks.push(2)
 
 stacks.deStack()
 
+print('\n\n')
 stacks = SetOfStacks(5)
 stacks.push(1)
 stacks.push(2)
 stacks.push(3)
 stacks.push(4)
 stacks.push(5)
-
 # Stack two
 stacks.push(1)
 stacks.push(2)
 
+print('Pop off stack 1')
 # Pop off stack 1
-#stacks.popAt(0)
+stacks.popAt(0)
 
 stacks.deStack()
 
