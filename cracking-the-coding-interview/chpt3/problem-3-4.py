@@ -12,17 +12,14 @@ class MyQueue():
         value = self.s1.peek()
         
         while len(self.s1.data) > 0:
-            
             if len(self.s1.data) != 1:
-                value = self.s1.pop()
-                self.s2.push(value)    
+                self.s2.push(self.s1.pop())    
             else:
                 value = self.s1.pop()
                 break
             
         while len(self.s2.data) > 0:
-            add = self.s2.pop()
-            self.s1.push(add)
+            self.s1.push(self.s2.pop())
 
         return value
     
