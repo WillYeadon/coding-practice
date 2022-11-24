@@ -2,8 +2,8 @@ def helperSplit(number):
     x = str(number).split('.')
     return x[0], x[1]
 
-def helperStick(number, value):
-    x = str(value) + '.' + str(number)
+def helperStick(number):
+    x = str(0) + '.' + str(number)
     return float(x)
 
 def printBinary(number):
@@ -13,22 +13,22 @@ def printBinary(number):
         return
     
     startlength = len(str(number)) - 1
-    split = helperSplit(number)
-    stick = helperStick(split[1], 0)
-    
-    print(split, stick, startlength)
-    
-    pre = '0 1000 0000 '
-    post = ''
+    pre = '0 1000 0000 ' # Sign plus exponent bits
+    post = '' # 23 digit mantissa
     processed = number    
-    
+   
     while len(post) < 24:
+        # This will be fed in a float of either 0.XXX or 1.YYY
+        # Takes the first bit and sticks onto post 
         overall = helperSplit(processed)
         post += overall[0]
-        
+
+        # Double mantissa and it is either greater than one
+        # in which case can just proceed or it is still '0.'
+        # which needs adding back on (sorry for poor expl)        
         mantissa = 2 * int(overall[1])
         if len(str(mantissa)) < startlength:
-            processed = helperStick(mantissa, 0)
+            processed = helperStick(mantissa)
 #            print('under', processed)
         else:
             processed = mantissa / 10**(startlength - 1)
