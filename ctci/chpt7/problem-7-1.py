@@ -159,5 +159,3 @@ class BlackJack():
 
 game = BlackJack()
 game.letsJack()
-
-#print(x.dealOne().score())
