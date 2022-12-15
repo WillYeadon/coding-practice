@@ -1,10 +1,5 @@
 # Flip a bit
 
-#for i in bin(1775)[2:]:
-#    print(i)
-
-#print(stringed, x)
-
 def bitFlipBrute(bittify):
     largest = 0
     for i in range(len(bin(bittify)[2:])):
