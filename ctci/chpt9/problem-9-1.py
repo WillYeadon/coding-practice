@@ -11,4 +11,4 @@
 # Disadvantages to mention: SQL admin could be
 # given by accident affecting security and
 # clients may perform very inefficient queries
-# that would be costly server side
+# that would be costly server side.
