@@ -3,17 +3,29 @@
 # off limits; design an algorithm tk navigate
 # from the top left to bottom right
 
-route = []
-start = None
+# trick here is that to get to the last square you 
+# need to get to the second to last square. You
+# can go to either row - 1 or col - 1 on each call
+# pyramiding out
 
-def findRoute(route, direction, square):
-    route.append(direction)
+route = []
+
+def findRoute(row, col, route):
+    # Checks you're in the maze & stops inf loop
+    if row < 0 or col < 0:
+        return False
     
-    if square.value == 'dead':
-        return
+    # Base case
+    origin = (row == 0) and (col == 0)
+       
+    if (origin or \
+        findRoute(row - 1, col, route) or \
+        findRoute(row, col - 1, route) ):
+        point = (row, col)
+        route.append(point)
+        return True
+
+    return False
     
-    if square.value == 'end':
-        route.append('end')
-        return
-    
-    
+findRoute(3,3, route)
+print(route)
