@@ -6,4 +6,4 @@
 # like Youtube or Twitter.
 
 # Shortest path would be a travelling salesman like
-# algorithm such as Dijkstra's .
+# algorithm such as Dijkstra's.
