@@ -26,14 +26,11 @@ class carPark():
         self.spaces = self.createSpace(x, y)
     
     def createSpace(self, x, y):
-        inner = ['Empty'] * self.length
-        hold = [inner] * self.width
-
-        hold = [['Empty', 'Empty', 'Empty', 'Empty'],
-                ['Empty', 'Empty', 'Empty', 'Empty'],
-                ['Empty', 'Empty', 'Empty', 'Empty']]
-       
-        return hold
+        spaces = []
+        for i in range(self.width):
+            spaces.append(['Empty' for _ in range(self.length)])
+              
+        return spaces
             
     def printSpaces(self):
         for i in self.spaces:
@@ -55,5 +52,6 @@ boj = car('Small', 'Vaxhaull', 'Corsa')
 
 pods = carPark(4, 3)
 pods.printSpaces()
+print()
 pods.park(boj)
 pods.printSpaces()
