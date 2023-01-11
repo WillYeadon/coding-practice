@@ -1,5 +1,9 @@
 # Bit flip req
 
+def convertOneLine(a, b):
+    # c = a ^ b
+    print(bin(a ^ b).count('1'))
+
 def convert(x, y):
     if x == y:
         print(0)
@@ -25,5 +29,5 @@ def convert(x, y):
     
     print(bits, A, B)
 
-
 convert(29,15)
+convertOneLine(29, 15)
