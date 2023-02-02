@@ -21,10 +21,21 @@ def bitSwap(x):
     
     return '0b' + output[::-1]
 
+def bitSwapManip(x):
+    # A is 1010
+    evens_mask = 0xAAAAAAAA
+    evens = x & evens_mask
+
+    # 5 is 0101
+    odds_mask = 0x55555555
+    odds = x & odds_mask    
+   
+    return bin((evens >> 1) | (odds << 1))
+
 a = 25
 b = 40
 c = 100
 
-print(bin(a), bitSwap(a))
-print(bin(b), bitSwap(b))
-print(bin(c), bitSwap(c))
+print(bin(a), bitSwap(a), bitSwapManip(a))
+print(bin(b), bitSwap(b), bitSwapManip(b))
+print(bin(c), bitSwap(c), bitSwapManip(c))
