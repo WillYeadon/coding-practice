@@ -1,7 +1,7 @@
 # Recursive multiplier without using *
 
 def recursiveMult(x, y):
-    if y == 0:
+    if y <= 0:
         return 0
     else:
         return x + recursiveMult(x, y - 1)
