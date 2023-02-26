@@ -73,4 +73,4 @@ x = Solution()
 y = x.mergeTwoLists(list_to_linked_list([1,2,4]), 
                       list_to_linked_list([1,3,4]))
 z = linked_list_to_list(y)
-print(z)     
+print(z)
