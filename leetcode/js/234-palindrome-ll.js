@@ -60,21 +60,30 @@ var isPalindrome = function(head) {
 };
 
 var isPalindromeSlowFast = function(head) {
+    // If of length 0 or 1 return true
     if (!head || !head.next) {
         return true;
     }
     
+    // fast and slow pointers
     let slow = head;
     let fast = head;
     
+    // Want to get half way point of the list
     while (fast && fast.next) {
+        // Fast goes at twice the speed so
+        // for [0,1,2,3,4,5,6,7,8,9]        
         slow = slow.next;
+        // goes: 1, 2, 3, 4, 5
         fast = fast.next.next;
+        // goes: 1, 3, 5, 7, 9
     }
     
     let prev = null;
     let curr = slow;
     
+    // This is a kind of hand shake reversal
+    // So that the link list will be reversed
     while (curr) {
         let nextNode = curr.next;
         curr.next = prev;
