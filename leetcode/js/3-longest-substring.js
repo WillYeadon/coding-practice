@@ -12,6 +12,7 @@ var lengthOfLongestSubstring = function(s) {
     while (right < s.length) {
         // Check if the current character is not in the current substring
         // or its index is less than or equal to the left pointer
+        console.log(left, right);
         if (!seen[s[right]] || seen[s[right]] <= left) {
             // Update the character's index in the seen object
             seen[s[right]] = right + 1;
@@ -60,6 +61,7 @@ var lengthOfLongestSubstringNested = function(s) {
 
 // 3
 console.log(lengthOfLongestSubstring("abcabcbb"));
+/*
 // 1
 console.log(lengthOfLongestSubstring("bbbbb"));
 // 3
@@ -71,3 +73,4 @@ console.log(lengthOfLongestSubstringNested("abcabcbb"));
 console.log(lengthOfLongestSubstringNested("bbbbb"));
 // 3
 console.log(lengthOfLongestSubstringNested("pwwkew"));
+*/
