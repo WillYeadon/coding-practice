@@ -4,6 +4,10 @@
  */
 var lengthOfLastWord = function(s) {
     const trimmed = s.trim()
+    /*
+    /.../ treated as regex
+    \s+ is regex for any number of space chars
+    */
     const split = trimmed.split(/\s+/);
 
     return split[split.length - 1].length;
