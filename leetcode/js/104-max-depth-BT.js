@@ -23,12 +23,7 @@ function dfs(node, current) {
         right = dfs(node.right, current + 1);
     }
     
-    if (left > right) {
-        return left;
-    }
-    else {
-        return right;
-    }
+    return Math.max(left, right);
 }
 
 var maxDepth = function(root) {
