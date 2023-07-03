@@ -15,3 +15,13 @@ var hIndex = function(citations) {
 
     return Math.min(h, citations.length - i);
 };
+
+var hIndexSuccinct = function(citations) {
+    citations.sort((a,b)=> b-a)
+    let h = 0;
+    while (citations[h]>h) {
+        h++;
+    }
+
+    return h;
+};
