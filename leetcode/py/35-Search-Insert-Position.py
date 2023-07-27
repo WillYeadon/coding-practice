@@ -21,10 +21,7 @@ class Solution:
             else:
                 left = pivot
 
-        if target > nums[pivot]:
-            return pivot + 1
-        else:       
-            return pivot
+        return pivot if nums[pivot] >= target else pivot + 1
 
         
 
