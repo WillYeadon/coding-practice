@@ -26,3 +26,20 @@ var minSubArrayLen = function(target, nums) {
     if (ans === Infinity) {return 0;}
     else {return ans;}
 };
+
+var minSubArrayLenShort = function(target, nums) {
+    let ans = Infinity;
+    let running = 0;
+    let left = 0;
+
+    for (let right = 0; right < nums.length; right++) {
+        running += nums[right];
+        while (running >= target) {
+            ans = Math.min(ans, right - left + 1);
+            running -= nums[left];
+            left++;
+        }
+    }
+
+    return ans === Infinity ? 0 : ans;
+};
