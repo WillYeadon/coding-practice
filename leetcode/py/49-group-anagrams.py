@@ -30,3 +30,18 @@ class Solution:
             ans.append(groups[key])
         return ans
         
+# Or if you wanted to do it sensibly
+def groupAnagramsTwo(strs: List[str]) -> List[List[str]]:
+    grouped = {}
+    
+    for word in strs:
+        # Use tuple of sorted word as a key
+        key = tuple(sorted(word))
+        
+        if key in grouped:
+            grouped[key].append(word)
+        else:
+            grouped[key] = [word]
+    
+    # Return grouped anagrams as lists
+    return list(grouped.values())    
