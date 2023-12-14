@@ -26,5 +26,8 @@ class SolutionFast:
             if nums[r]: # not 0
                 nums[l], nums[r] = nums[r], nums[l] # swap left with right, right with left
                 l += 1 # increment left index
+                # This l += 1 happens even on the first step as l = r
+                # only when r == 0 will the if statement not run and
+                # l stay as whatever the 0 is.
         return nums # return updated list
             
