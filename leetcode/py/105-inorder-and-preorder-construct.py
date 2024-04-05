@@ -1,4 +1,3 @@
-# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -7,6 +6,7 @@ class TreeNode:
 
 class Solution:
     def buildTree(self, preorder, inorder):
+        # Base case
         if not preorder or not inorder:
             return None
         
