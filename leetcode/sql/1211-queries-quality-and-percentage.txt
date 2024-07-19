@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+select Queries.query_name,
+round(avg(rating/position),2)
+as quality,
+round(100 * count((select rating where rating < 3)) / count(rating),2)
+as poor_query_percentage
+from Queries
+where Queries.query_name is not null
+group by Queries.query_name;
