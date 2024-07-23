@@ -1,0 +1,4 @@
+# Despite being called more than 5 in the spec it says "at least five students."
+# Write your MySQL query statement below
+select class from Courses
+group by class having count(*) >= 5;
