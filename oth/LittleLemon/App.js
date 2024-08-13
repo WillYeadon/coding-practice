@@ -1,26 +1,31 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import RootNavigator from "./navigators/RootNavigator";
 
-import LittleLemonHeader from './components/LittleLemonHeader';
-import LittleLemonFooter from './components/LittleLemonFooter';
-import WelcomeScreen from './components/WelcomeScreen';
-import MenuItems from './components/MenuItems';
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator ();
 
 export default function App() {
   return (
-    <>
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#495E57',
-      }}>
-      <LittleLemonHeader />
-{/*      <WelcomeScreen />*/}
-      <MenuItems />
-    </View>
-    <View >
-      <LittleLemonFooter />
-    </View>
-    </>
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
   );
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#495E57',
+  },
+  footerContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+});
